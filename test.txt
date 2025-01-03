@@ -1,0 +1,19 @@
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local FAKE_GAME_PASS_ID = 12345678 -- Replace with a fake or placeholder Game Pass ID
+
+-- Function to simulate malicious behavior
+local function simulateMaliciousScript(player)
+    warn(player.Name .. " would be forced to buy a Game Pass here if this were malicious.")
+    
+    -- Simulate the prompt (but don't actually prompt it)
+    print("Pretending to prompt Game Pass purchase for ID:", FAKE_GAME_PASS_ID)
+    -- MarketplaceService:PromptGamePassPurchase(player, FAKE_GAME_PASS_ID) -- Disabled
+end
+
+-- Trigger simulation when a player joins
+Players.PlayerAdded:Connect(function(player)
+    wait(2) -- Delay for demonstration purposes
+    simulateMaliciousScript(player)
+end)
